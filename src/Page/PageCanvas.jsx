@@ -119,7 +119,7 @@ export class PageCanvasInternal extends PureComponent {
 
     // If another render is in progress, let's cancel it
     this.cancelRenderingTask();
-
+    page.cleanupAfterRender = true;
     this.renderer = page.render(renderContext);
 
     return this.renderer.promise.then(this.onRenderSuccess).catch(this.onRenderError);
